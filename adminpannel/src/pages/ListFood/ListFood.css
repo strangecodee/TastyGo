@@ -1,0 +1,14 @@
+.table td{
+    vertical-align: middle;
+}
+
+
+.table img {
+    border-radius: 5px; /* Optional: Add rounded corners to images */
+}
+.bi-x-circle-fill {
+    cursor: pointer;
+}
+
+    
+
