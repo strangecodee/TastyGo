@@ -25,7 +25,7 @@ Follow these steps to set up the project locally:
 
 ### **2️⃣ Backend Setup**
 ```sh
- cd backend
+ cd TastyGo
  mvn clean install
  mvn spring-boot:run
 ```
@@ -33,13 +33,13 @@ Follow these steps to set up the project locally:
 ### **3️⃣ Frontend Setup**
 #### Client Application
 ```sh
- cd frontend/client
+ cd client
  npm install
  npm run dev
 ```
 #### Admin Panel
 ```sh
- cd frontend/admin-panel
+ cd adminpannel
  npm install
  npm run dev
 ```
