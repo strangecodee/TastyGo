@@ -13,9 +13,9 @@ const Contactus = () => {
     e.preventDefault();
 
     const emailRequest = {
-      subject: `Contact Us Message from ${firstName} ${lastName}`,
+      subject: `Get in touch from TastyGo ${firstName} ${lastName}`,
       body: message,
-      recipient: 'admin@example.com', // Change this to your admin email
+      recipient: 'annu.exe@gmail.com', // Change this to your admin email
     };
 
     try {
