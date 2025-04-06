@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { assets } from '../../assets/assets';
-import axios from 'axios';
+
 import { toast } from 'react-toastify';
 import { addFood } from '../../services/foodService';
+import "./AddFood.css";
 
 const AddFood = () => {
     const [image, setImage] = useState(null);
@@ -44,12 +45,12 @@ const AddFood = () => {
         
     }
     return (
-        <div className="container mx-2 mt-2">
+        <div className="add-food-container">
             <div className="row">
-                <div className="card col-md-4">
+                <div className="card col-md-4 add-food-card">
                     <div className="card-body">
-                        <h2 className="mb-4">Add Food</h2>
-                        <form onSubmit={onSubmitHandler}>
+                        <h2 className="add-food-title">Add Food</h2>
+                        <form className="add-food-form" onSubmit={onSubmitHandler}>
                             <div className="mb-3">
                                 <label htmlFor="image" className="form-label">
                                     <img 

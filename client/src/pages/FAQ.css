@@ -1,0 +1,40 @@
+.faq-section {
+    padding: 2rem;
+    background-color: #fdfdfd;
+}
+
+.faq-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.faq-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.faq-card:hover {
+    transform: translateY(-4px);
+}
+
+.faq-icon {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.faq-answer {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}

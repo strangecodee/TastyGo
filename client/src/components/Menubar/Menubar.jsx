@@ -35,7 +35,16 @@ const Menubar = () => {
         </li>
         <li className="nav-item">
           <Link className={active=== 'contact-us' ? "nav-link fw-bold active": "nav-link"} to="/ContactUs" onClick={()=> setActive('contact-us')}>Contact Us</Link>
-        </li> 
+        </li>
+        <li className="nav-item">
+          <Link className={active === 'testimonials' ? "nav-link fw-bold active" : "nav-link"} to="/testimonials" onClick={() => setActive('testimonials')}>Testimonials</Link>
+        </li>
+        <li className="nav-item">
+          <Link className={active=== 'locate' ? "nav-link fw-bold active": "nav-link"} to="/locate" onClick={()=> setActive('locate')}>Locate Us</Link>
+        </li>
+        <li className="nav-item">
+          <Link className={active === 'faq' ? "nav-link fw-bold active" : "nav-link"} to="/faq" onClick={() => setActive('faq')}>FAQ</Link>
+        </li>
       </ul>
       <div className="d-flex align-items-center gap-4">
        <Link to={`/cart`}> <div className="position-relative">

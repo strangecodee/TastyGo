@@ -1,0 +1,22 @@
+.locate-section {
+    padding: 2rem 1rem;
+}
+
+.locate-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    align-items: start;
+}
+
+.locate-details h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.locate-details p {
+    margin: 0.5rem 0;
+    color: #555;
+    font-size: 1rem;
+}

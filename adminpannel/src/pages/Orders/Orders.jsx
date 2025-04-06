@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { assets } from "../../assets/assets";
+import "./Orders.css";
 
 const Orders = () => {
   const [data, setData] = useState([]);
@@ -32,10 +33,10 @@ const Orders = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="py-4 row justify-content-center">
-        <div className="col-11 card shadow-sm p-3">
-          <table className="table table-hover">
+      <div className="orders-container">
+        <div className="row justify-content-center">
+          <div className="col-11 orders-card">
+            <table className="orders-table">
             <tbody>
               {data.length > 0 ? (
                 data.map((order, index) => (

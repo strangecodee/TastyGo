@@ -2,6 +2,7 @@ package com.tastygo.express.TastyGo.config;
 
 import com.tastygo.express.TastyGo.jwtFilter.JwtAuthenticationFilter;
 import com.tastygo.express.TastyGo.repository.UserRepository;
+import com.tastygo.express.TastyGo.service.AdminDetailsService;
 import com.tastygo.express.TastyGo.service.AppUserDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +32,7 @@ import java.util.List;
 public class SecurityConfig {
 
     private final AppUserDetailsService userDetailsService;
+    private final AdminDetailsService adminDetailsService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
@@ -39,8 +41,8 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/register", "/api/login", "/api/TastyGo/**","/api/orders/all","/api/orders/status/**", "/api/ContactUs/**").permitAll()
-                        .requestMatchers("/api/cart/**").authenticated()
+                        .requestMatchers("/api/register", "/api/login", "/api/TastyGo/**","/api/orders/all","/api/orders/status/**", "/api/ContactUs/**","/api/admin/login").permitAll()
+                        .requestMatchers("/api/cart/**","/api/admin/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -62,7 +64,7 @@ public class SecurityConfig {
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5176", "http://localhost:5175"));
+        config.setAllowedOrigins(List.of("http://localhost:5177", "http://localhost:5175"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Access-Control-Allow-Headers"));
         config.setExposedHeaders(List.of("Authorization"));
@@ -74,10 +76,15 @@ public class SecurityConfig {
     }
     @Bean
     public AuthenticationManager authenticationManager() {
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(passwordEncoder());
-        return new ProviderManager(authProvider);
+        DaoAuthenticationProvider adminAuthProvider = new DaoAuthenticationProvider();
+        adminAuthProvider.setUserDetailsService(adminDetailsService);
+        adminAuthProvider.setPasswordEncoder(passwordEncoder());
 
+        DaoAuthenticationProvider userAuthProvider = new DaoAuthenticationProvider();
+        userAuthProvider.setUserDetailsService(userDetailsService);
+        userAuthProvider.setPasswordEncoder(passwordEncoder());
+
+        return new ProviderManager(adminAuthProvider, userAuthProvider);
     }
+
 }

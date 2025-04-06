@@ -18,8 +18,9 @@ import { useContext } from "react";
 import MyOrders from './pages/MyOrders.jsx';
 import { StoreContext } from './context/StoreContext.jsx';
 import ExploreAbout from './pages/ExploreAbout.jsx';
-
-
+import Testimonials from "./pages/Testimonials.jsx";
+import LocateUs from "./pages/LocateUs.jsx";
+import FAQ from "./pages/FAQ.jsx";
 
 
 
@@ -34,10 +35,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/explore" element={<ExploreAbout />} />
+        <Route path="/explore" element={<ExploreAbout />} /><Route path="/testimonials" element={<Testimonials />} />
         <Route path="/ExploreFood" element={<ExploreFood />} /> 
         <Route path='/food/:id' element={<FoodDetails/>}/>
-        <Route path='/cart' element={<Cart/>}/>
+          <Route path="/locate" element={<LocateUs />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path='/cart' element={<Cart/>}/>
         <Route path='/order' element={token ? <PlaceOrder/>: <Login/>}/>
         <Route path='/login' element={token ? <Home />:<Login/>}/>
         <Route path='/register' element={token ? <Home />:<Register/>}/>

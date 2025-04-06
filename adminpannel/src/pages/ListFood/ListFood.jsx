@@ -42,7 +42,7 @@ useEffect(() => {
                 <tr> {/* Add a <tr> inside <thead> */}
                     <th>Image</th>
                     <th>Name</th>
-                    <th>Description</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Action</th>
                 </tr>
